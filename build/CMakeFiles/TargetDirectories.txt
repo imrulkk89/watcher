@@ -1,0 +1,3 @@
+/home/nsssayom/Dev/medCX/watcher/build/CMakeFiles/main.dir
+/home/nsssayom/Dev/medCX/watcher/build/CMakeFiles/edit_cache.dir
+/home/nsssayom/Dev/medCX/watcher/build/CMakeFiles/rebuild_cache.dir

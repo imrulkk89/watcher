@@ -1,10 +1,12 @@
 #include "core/config/config.hpp"
 #include <iostream>
 
+#include "spdlog/spdlog.h"
+
 int main()
 {
+    spdlog::info("Hello, {}!", "World");
     Config *config = new Config();
     config->load();
-    std::cout << "Hello, World!" << std::endl;
     return 0;
 }

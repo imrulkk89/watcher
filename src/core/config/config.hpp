@@ -5,7 +5,7 @@
 #include <string>
 #include <fstream>
 
-// include json library from ../includes/json.hpp
+// include json library from ../../../include/json.hpp
 #include "../../../include/json/json.hpp"
 
 // define a config class that will be used to read and write config files

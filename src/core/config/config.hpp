@@ -14,10 +14,12 @@ class Config
 public:
     Config();
     ~Config();
-    void load();
-    // void save();
-    // void set(std::string key, std::string value);
-    // std::string get(std::string key);
+
+    // a method to load the config file abd return a string vector of process names
+    std::vector<std::string> load();
+    char *getCommandByProcessName(std::string);
+    char **getArgsByProcessName(std::string);
+    bool isProcessForeground(std::string);
 };
 
 #endif

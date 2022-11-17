@@ -9,5 +9,14 @@ add_executable(main
                src/core/config/config.cpp
                src/service/unix/ProcessManager.cpp
                )
-# add precompiled library for libs/spdlog to the target 
-# target_link_libraries(main PRIVATE spdlog::spdlog)
+
+# read all files in src/sample directory
+file(GLOB_RECURSE SAMPLE_FILES "src/sample/*.cpp")
+
+
+# create executable for each file in src/sample directory
+foreach(SAMPLE_FILE ${SAMPLE_FILES})
+    get_filename_component(SAMPLE_NAME ${SAMPLE_FILE} NAME_WE)
+    add_executable(${SAMPLE_NAME} ${SAMPLE_FILE})
+    set_target_properties(${SAMPLE_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/build/bin)
+endforeach()

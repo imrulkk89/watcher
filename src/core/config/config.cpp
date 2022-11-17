@@ -1,5 +1,6 @@
 #include "config.hpp"
 #include <iostream>
+#include "spdlog/spdlog.h"
 
 using json = nlohmann::json;
 
@@ -13,16 +14,16 @@ Config::~Config()
     // destructor
 }
 
-void Config::load()
+std::vector<std::string> Config::load()
 {
     // load config file
-    std::ifstream input("../config/watchdog.conf");
+    std::ifstream input("../config/watchdog.json");
 
     // check if file exists
     if (!input.good())
     {
-        std::cout << "configuration file is not found" << std::endl;
-        return;
+        spdlog::error("core/config: configuration file is not found");
+        exit(EXIT_FAILURE);
     }
 
     // parse json file
@@ -32,8 +33,14 @@ void Config::load()
     input.close();
 
     // get the size of data["processes"]
-    int size = data["processes"].size();
+    int processCount = data["processes"].size();
+    spdlog::info("core/config: found {} processes to watch", processCount);
 
-    // print the size of data["processes"]
-    std::cout << size << std::endl;
+    std::vector<std::string> processNames;
+    for (int i = 0; i < processCount; i++)
+    {
+        processNames.push_back(data["processes"][i]["name"]);
+    }
+
+    return processNames;
 }

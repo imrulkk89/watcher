@@ -4,18 +4,28 @@
 #include "spdlog/spdlog.h"
 #include "service/unix/ProcessManager.hpp"
 
+using namespace std;
+
 int main()
 {
-    spdlog::info("Hello, {}!", "World");
     Config *config = new Config();
-    config->load();
+    vector<string> processNames = config->load();
 
-    ProcessManager *processManager = new ProcessManager();
-    pid_t pid = processManager->getProcessId("firefox");
-    std::cout << pid << std::endl;
+    // print the process names
+    for (int i = 0; i < processNames.size(); i++)
+    {
+        cout << processNames[i] << endl;
+    }
 
-    pid_t pid2 = processManager->getProcessId("yakuake");
-    std::cout << pid2 << std::endl;
-
+    // ProcessManager *processManager = new ProcessManager();
+    // pid_t pid = processManager->getProcessId("firefox");
+    // pid_t pid2 = processManager->getProcessId("yakuake");
+    // pid_t pid = processManager->spawnProcess("/home/nsssayom/Dev/medCX/watcher/build/bin/uhura", NULL, true);
+    // while (true)
+    // {
+    //     spdlog::info("ProcessManager::main: main loop");
+    //     // sleep for 1 second
+    //     sleep(1);
+    // }
     return 0;
 }

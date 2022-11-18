@@ -65,7 +65,7 @@ pid_t ProcessManager::getProcessId(std::string processName)
     if (pid == 0)
     {
         spdlog::error("ProcessManager::getProcessId: process {} is not found", processName);
-        return 0;
+        return -1;
     }
 
     // log the process id

@@ -8,6 +8,8 @@
 
 #include "spdlog/spdlog.h"
 
+#include "utils/utils.hpp"
+
 using namespace std::this_thread;     // sleep_for, sleep_until
 using namespace std::chrono_literals; // ns, us, ms, s, h, etc.
 using std::chrono::system_clock;
@@ -20,7 +22,7 @@ int main()
     {
         info("Data: This is just a thing… and things can be replaced. Lives cannot.");
         // generate a random number between 1 and 10
-        int random = rand() % 10 + 1;
+        int random = randomgen(1, 10);
         // sleep for random seconds
         sleep_for(random * 1s);
     }

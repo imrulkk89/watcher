@@ -1,0 +1,11 @@
+# ninja log v5
+5	14079	1668754208986797811	CMakeFiles/picard.dir/src/sample/picard.cpp.o	8fa0da1222744f04
+2	14087	1668754208993464577	CMakeFiles/data.dir/src/sample/data.cpp.o	f1700046f73e40d7
+1	20554	1668754215480227590	CMakeFiles/main.dir/src/main.cpp.o	984a0a2ee8d756a3
+2	14271	1668754209163467102	CMakeFiles/kirk.dir/src/sample/kirk.cpp.o	55f4f3b880fbc0b7
+1	20441	1668754215363559190	CMakeFiles/main.dir/src/service/unix/ProcessManager.cpp.o	3f2b3338b4e2efb7
+14271	14960	1668754209896811327	bin/kirk	435d1deada6747e0
+14087	15223	1668754210146815041	bin/data	e1bf3629f312497a
+14080	15536	1668754210460153028	bin/picard	ede09ebf30215723
+1	19484	1668754214396878166	CMakeFiles/main.dir/src/core/config/config.cpp.o	5b9b65a782ed7ae
+14960	24107	1668754219036947082	CMakeFiles/spock.dir/src/sample/spock.cpp.o	70f04ba98d049db5

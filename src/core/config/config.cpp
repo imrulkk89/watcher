@@ -14,7 +14,7 @@ Config::~Config()
     // destructor
 }
 
-std::vector<std::string> Config::load()
+json Config::readConfigFile()
 {
     // load config file
     std::ifstream input("../config/watchdog.json");
@@ -32,6 +32,13 @@ std::vector<std::string> Config::load()
     // close file
     input.close();
 
+    return data;
+}
+
+std::vector<std::string> Config::load()
+{
+    json data = this->readConfigFile();
+
     // get the size of data["processes"]
     int processCount = data["processes"].size();
     spdlog::info("core/config: found {} processes to watch", processCount);
@@ -43,4 +50,69 @@ std::vector<std::string> Config::load()
     }
 
     return processNames;
+}
+
+std::string Config::getCommandByProcessName(std::string processName)
+{
+    // parse json file
+    json data = this->readConfigFile();
+
+    // get the size of data["processes"]
+    int processCount = data["processes"].size();
+    spdlog::info("core/config: found {} processes to watch", processCount);
+
+    for (int i = 0; i < processCount; i++)
+    {
+        if (data["processes"][i]["name"] == processName)
+        {
+            return data["processes"][i]["command"];
+        }
+    }
+
+    return "";
+}
+
+char **Config::getArgsByProcessName(std::string processName)
+{
+    // parse json file
+    json data = this->readConfigFile();
+
+    // get the size of data["processes"]
+    int processCount = data["processes"].size();
+    spdlog::info("core/config: found {} processes to watch", processCount);
+
+    for (int i = 0; i < processCount; i++)
+    {
+        if (data["processes"][i]["name"] == processName)
+        {
+            // typecast json array to char**
+            return (char **)data["processes"][i]["args"].get<std::vector<std::string>>().data();
+        }
+    }
+
+    return NULL;
+}
+
+bool Config::isProcessForeground(std::string processName)
+{
+    // parse json file
+    json data = this->readConfigFile();
+
+    // get the size of data["processes"]
+    int processCount = data["processes"].size();
+    spdlog::info("core/config: found {} processes to watch", processCount);
+
+    for (int i = 0; i < processCount; i++)
+    {
+        if (data["processes"][i]["name"] == processName)
+        {
+            // if data["processes"][i]["foreground"] exists, return it
+            if (data["processes"][i].find("foreground") != data["processes"][i].end())
+            {
+                return data["processes"][i]["foreground"];
+            }
+        }
+    }
+
+    return false;
 }

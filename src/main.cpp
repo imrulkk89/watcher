@@ -4,28 +4,43 @@
 #include "spdlog/spdlog.h"
 #include "service/unix/ProcessManager.hpp"
 
+#include <tabulate/table.hpp>
+
 using namespace std;
+using namespace tabulate;
 
 int main()
 {
     Config *config = new Config();
+    ProcessManager *processManager = new ProcessManager();
+
     vector<string> processNames = config->load();
 
-    // print the process names
+    // loop through process names
     for (int i = 0; i < processNames.size(); i++)
     {
-        cout << processNames[i] << endl;
+        // check if process is running
+        if (processManager->getProcessId(processNames[i]) == -1)
+        {
+            // if not, spawn it
+            processManager->spawnProcess(
+                config->getCommandByProcessName(processNames[i]),
+                config->getArgsByProcessName(processNames[i]),
+                /* config->isProcessForeground(processNames[i]) */
+                false);
+        }
     }
 
-    // ProcessManager *processManager = new ProcessManager();
-    // pid_t pid = processManager->getProcessId("firefox");
-    // pid_t pid2 = processManager->getProcessId("yakuake");
-    // pid_t pid = processManager->spawnProcess("/home/nsssayom/Dev/medCX/watcher/build/bin/uhura", NULL, true);
-    // while (true)
-    // {
-    //     spdlog::info("ProcessManager::main: main loop");
-    //     // sleep for 1 second
-    //     sleep(1);
-    // }
+    // create a table
+    Table processes;
+
+    // add column headers
+    processes.add_row({"Process Name", "PID", "Status"});
+    processes.add_row({"------------", "---", "------"});
+    processes.add_row({"------------", "---", "------"});
+
+    while (true)
+    {
+    }
     return 0;
 }

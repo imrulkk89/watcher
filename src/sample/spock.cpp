@@ -20,7 +20,7 @@ using namespace spdlog;
 int main()
 {
     // a logger with a daily file sink that rotates on 00:00
-    auto logger = spdlog::daily_logger_mt("spock", "../logs/spock.log", 0, 0);
+    auto logger = spdlog::daily_logger_mt("spock", "../logs/spock.log", 2, 30);
     while (true)
     {
         // log a message

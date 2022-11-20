@@ -13,10 +13,6 @@ ProcessManager::~ProcessManager()
 pid_t ProcessManager::spawnProcess(std::string command, char **args /* = NULL */, bool isForeground /* = false */)
 {
     // spawn a new process and get its pid
-    // pid_t pid = std::system(command.c_str());
-    // spdlog::info("Spawned process with pid: {}", pid);
-    // return pid;
-
     // cmdArg = command + all args
     std::string cmdArg = "";
     if (args != NULL)
@@ -36,16 +32,21 @@ pid_t ProcessManager::spawnProcess(std::string command, char **args /* = NULL */
     boost::process::child c(cmdArg, boost::process::std_out > stdout, boost::process::std_err > stderr);
     if (c.running())
     {
-        spdlog::info("Spawned process with pid: {}", c.id());
+        spdlog::get("process")->info("Spawned process with pid {} for {}", c.id(), command);
+        // flush the log file
+        spdlog::get("process")->flush();
+
         // detach the process
         c.detach();
         // push the pid to the vector
-        processIds.push_back(c.id());
+        this->processIds.push_back(c.id());
         return c.id();
     }
     else
     {
-        spdlog::error("Failed to spawn process");
+        spdlog::get("process")->error("Failed to spawn process for {}", command);
+        // flush the logger
+        spdlog::get("process")->flush();
         return -1;
     }
 }
@@ -64,14 +65,34 @@ pid_t ProcessManager::getProcessId(std::string processName)
     // if pid is 0, it means that the process is not found
     if (pid == 0)
     {
-        spdlog::error("ProcessManager::getProcessId: process {} is not found", processName);
+        spdlog::get("process")->error("Process {} is not found", processName);
+        // flush the logger
+        spdlog::get("process")->flush();
         return -1;
     }
 
-    // log the process id
-    spdlog::info("ProcessManager::getProcessId: process {} has pid {}", processName, pid);
     // add the process id to the processIds vector
     processIds.push_back(pid);
 
     return pid;
+}
+
+// get the memory usage of the process with the given pid and resource type
+// resource type: 0 = memory, 1 = cpu
+double ProcessManager::getResourceUsages(pid_t pid, int resourceType) {
+    std::vector<std::string> memCommand {"-c", "ps -p " + std::to_string(pid) + " -o rss | tail -1"};
+    std::vector<std::string> cpuCommand {"-c", "ps -p " + std::to_string(pid) + " -o %cpu | tail -1"};
+    
+    boost::process::ipstream out;
+    
+    // in ideal case we should use boost::process::search_path("sh") but it doesn't work on this version of boost
+    // so we use /usr/bin/sh instead which is the default path for sh on most linux distros
+    boost::process::child c("/usr/bin/sh", resourceType == 0 ? memCommand : cpuCommand, boost::process::std_out > out);
+
+    for (std::string line; c.running(), std::getline(out, line);) {
+        return std::stod(line);
+    }
+    c.wait();
+
+    return -1;
 }

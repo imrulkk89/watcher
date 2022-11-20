@@ -1,5 +1,5 @@
-#ifndef UTILS_HPP
-#define UTILS_HPP
+#ifndef UTILS_HPP_
+#define UTILS_HPP_
 
 #include <random>
 

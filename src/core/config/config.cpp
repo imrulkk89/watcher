@@ -22,7 +22,7 @@ json Config::readConfigFile()
     // check if file exists
     if (!input.good())
     {
-        spdlog::error("core/config: configuration file is not found");
+        spdlog::get("config")->error("core/config: configuration file is not found");
         exit(EXIT_FAILURE);
     }
 
@@ -41,7 +41,7 @@ std::vector<std::string> Config::load()
 
     // get the size of data["processes"]
     int processCount = data["processes"].size();
-    spdlog::info("core/config: found {} processes to watch", processCount);
+    spdlog::get("config")->info("found {} processes to watch", processCount);
 
     std::vector<std::string> processNames;
     for (int i = 0; i < processCount; i++)
@@ -59,8 +59,6 @@ std::string Config::getCommandByProcessName(std::string processName)
 
     // get the size of data["processes"]
     int processCount = data["processes"].size();
-    spdlog::info("core/config: found {} processes to watch", processCount);
-
     for (int i = 0; i < processCount; i++)
     {
         if (data["processes"][i]["name"] == processName)
@@ -79,7 +77,6 @@ char **Config::getArgsByProcessName(std::string processName)
 
     // get the size of data["processes"]
     int processCount = data["processes"].size();
-    spdlog::info("core/config: found {} processes to watch", processCount);
 
     for (int i = 0; i < processCount; i++)
     {
@@ -100,7 +97,6 @@ bool Config::isProcessForeground(std::string processName)
 
     // get the size of data["processes"]
     int processCount = data["processes"].size();
-    spdlog::info("core/config: found {} processes to watch", processCount);
 
     for (int i = 0; i < processCount; i++)
     {

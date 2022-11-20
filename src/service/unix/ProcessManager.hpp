@@ -4,9 +4,10 @@
 #define PROCESSMANAGER_HPP
 
 #include <string>
+#include "boost/process.hpp"
 #include "spdlog/spdlog.h"
 
-#include "boost/process.hpp"
+#include <iostream>
 
 class ProcessManager
 {
@@ -20,6 +21,7 @@ public:
 
     pid_t getProcessId(std::string);
     pid_t spawnProcess(std::string, char ** = NULL, bool = false);
+    double getResourceUsages(pid_t, int);
 };
 
 #endif

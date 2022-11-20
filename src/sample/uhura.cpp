@@ -1,4 +1,4 @@
-/* This is a sample process named after beloved Star Trek character Uhura
+/* This is a sample process named after beloved Star Trek character uhura
    This process will print a message every 1 to 10 seconds
 */
 
@@ -27,7 +27,6 @@ int main()
         logger->info("Uhura reporting for duty!");
         // flush the logger
         logger->flush();
-        // info("Uhura: Oh, On The Starship Enterprise, There's Someone Who's In Satan's Guise.");
         // generate a random number between 1 and 10
         int random = randomgen(1, 10);
         // sleep for random seconds

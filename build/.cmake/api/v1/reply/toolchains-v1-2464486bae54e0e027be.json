@@ -36,7 +36,7 @@
 						"gcc"
 					]
 				},
-				"path" : "/usr/bin/g++",
+				"path" : "/usr/bin/c++",
 				"version" : "12.2.0"
 			},
 			"language" : "CXX",

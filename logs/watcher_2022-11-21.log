@@ -1,0 +1,6 @@
+[2022-11-21 00:52:04.588] [process] [error] Process uhura is not found
+[2022-11-21 00:52:04.589] [process] [info] Spawned process with pid 229489 for bin/uhura
+[2022-11-21 00:52:04.626] [process] [error] Process spock is not found
+[2022-11-21 00:52:04.627] [process] [info] Spawned process with pid 229497 for bin/spock
+[2022-11-21 00:52:04.663] [process] [error] Process data is not found
+[2022-11-21 00:52:04.664] [process] [info] Spawned process with pid 229505 for bin/data

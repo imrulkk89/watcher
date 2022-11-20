@@ -79,6 +79,8 @@
     "charconv": "cpp",
     "*.rh": "cpp",
     "*.inc": "cpp",
-    "csignal": "cpp"
-  }
+    "csignal": "cpp",
+    "*.ipp": "cpp"
+  },
+  "C_Cpp.intelliSenseEngineFallback": "Disabled"
 }

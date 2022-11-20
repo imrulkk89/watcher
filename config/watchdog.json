@@ -10,6 +10,11 @@
             "command": "bin/spock",
             "args": [],
             "foreground": true
+        },
+        {
+            "name": "data",
+            "command": "bin/data",
+            "args": []
         }
     ]
 }

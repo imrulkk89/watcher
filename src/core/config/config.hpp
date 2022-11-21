@@ -22,7 +22,7 @@ public:
     // a method to load the config file abd return a string vector of process names
     std::vector<std::string> load();
     std::string getCommandByProcessName(std::string);
-    char **getArgsByProcessName(std::string);
+    std::vector<std::string> getArgsByProcessName(std::string);
     bool isProcessForeground(std::string);
 };
 

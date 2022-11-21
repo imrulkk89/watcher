@@ -8,12 +8,22 @@
         {
             "name": "spock",
             "command": "bin/spock",
-            "args": [],
+            "args": ["Needs of the many outweighs the needs of the few"],
             "foreground": true
+        },
+        {
+            "name": "kirk",
+            "command": "bin/kirk",
+            "args": []
         },
         {
             "name": "data",
             "command": "bin/data",
+            "args": []
+        },
+        {
+            "name": "picard",
+            "command": "bin/picard",
             "args": []
         }
     ]

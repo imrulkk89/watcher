@@ -23,6 +23,7 @@ json Config::readConfigFile()
     if (!input.good())
     {
         spdlog::get("config")->error("core/config: configuration file is not found");
+        spdlog::get("config")->flush();
         exit(EXIT_FAILURE);
     }
 
@@ -41,7 +42,9 @@ std::vector<std::string> Config::load()
 
     // get the size of data["processes"]
     int processCount = data["processes"].size();
+
     spdlog::get("config")->info("found {} processes to watch", processCount);
+    spdlog::get("config")->flush();
 
     std::vector<std::string> processNames;
     for (int i = 0; i < processCount; i++)
@@ -70,7 +73,7 @@ std::string Config::getCommandByProcessName(std::string processName)
     return "";
 }
 
-char **Config::getArgsByProcessName(std::string processName)
+std::vector<std::string> Config::getArgsByProcessName(std::string processName)
 {
     // parse json file
     json data = this->readConfigFile();
@@ -83,11 +86,35 @@ char **Config::getArgsByProcessName(std::string processName)
         if (data["processes"][i]["name"] == processName)
         {
             // typecast json array to char**
-            return (char **)data["processes"][i]["args"].get<std::vector<std::string>>().data();
+            // char** argv = (char **)data["processes"][i]["args"].get<std::vector<std::string>>().data();
+
+            // get the data["processes"][i]["args"] array
+            json args = data["processes"][i]["args"];
+
+            // typecast json array to std::vector<std::string>
+            std::vector<std::string> argv = args.get<std::vector<std::string>>();
+
+            // if there is no args, return an empty vector
+            if (argv.size() == 0)
+            {
+                return {};
+            }
+            
+            // get a string with all arguments
+            std::string argsString = "";
+            for (int i = 0; i < argv.size(); i++)
+            {
+                argsString += argv[i] + " ";
+            }
+            
+            spdlog::get("config")->info("found arguments {} for process {}", argsString, processName);
+            spdlog::get("config")->flush();
+
+            return argv;
         }
     }
 
-    return NULL;
+    return {};
 }
 
 bool Config::isProcessForeground(std::string processName)

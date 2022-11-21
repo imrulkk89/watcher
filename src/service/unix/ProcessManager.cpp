@@ -10,23 +10,31 @@ ProcessManager::~ProcessManager()
     // destructor
 }
 
-pid_t ProcessManager::spawnProcess(std::string command, char **args /* = NULL */, bool isForeground /* = false */)
+pid_t ProcessManager::spawnProcess(std::string command, std::vector<std::string> args /* = NULL */, bool isForeground /* = false */)
 {
     // spawn a new process and get its pid
     // cmdArg = command + all args
-    std::string cmdArg = "";
-    if (args != NULL)
+    std::string cmdArg = command;
+
+    // if args is not null then add args to cmdArg
+    if (args.size() > 0)
     {
-        for (int i = 0; args[i] != NULL; i++)
+        for (int i = 0; i < args.size(); i++)
         {
-            cmdArg += args[i];
             cmdArg += " ";
+
+            // id args[i] contains spaces then add quotes
+            if (args[i].find(" ") != std::string::npos)
+            {
+                cmdArg += "\"" + args[i] + "\"";
+            }
+            else
+            {
+                cmdArg += args[i];
+            }
         }
     }
-    else
-    {
-        cmdArg = command;
-    }
+
 
     // spawn a new process with boost::process
     boost::process::child c(cmdArg, boost::process::std_out > stdout, boost::process::std_err > stderr);

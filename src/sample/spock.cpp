@@ -17,14 +17,22 @@ using std::chrono::system_clock;
 
 using namespace spdlog;
 
-int main()
-{
-    // a logger with a daily file sink that rotates on 00:00
+int main(int argc, char** argv)
+{   // a logger with a daily file sink that rotates on 00:00
     auto logger = spdlog::daily_logger_mt("spock", "../logs/spock.log", 2, 30);
+
+    std::string message = "Live long and prosper 🖖";
+
+    // if argument is passed, use it as a message
+    if (argc > 1)
+    {
+        message = argv[1];
+    }
+
     while (true)
     {
         // log a message
-        logger->info("Live long and prosper 🖖");
+        logger->info(message);
         // flush the logger
         logger->flush();
         // generate a random number between 1 and 10

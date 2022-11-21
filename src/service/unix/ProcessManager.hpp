@@ -20,7 +20,7 @@ public:
     ~ProcessManager();
 
     pid_t getProcessId(std::string);
-    pid_t spawnProcess(std::string, char ** = NULL, bool = false);
+    pid_t spawnProcess(std::string, std::vector<std::string> = {}, bool = false);
     double getResourceUsages(pid_t, int);
 };
 

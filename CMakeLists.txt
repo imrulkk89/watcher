@@ -6,6 +6,7 @@ link_directories(${CMAKE_CURRENT_SOURCE_DIR}/lib)
 
 add_executable(main 
                src/main.cpp 
+               src/core/view/view.cpp
                src/core/config/config.cpp
                src/service/unix/ProcessManager.cpp
                )

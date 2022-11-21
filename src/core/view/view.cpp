@@ -64,7 +64,6 @@ Table View::createNotification()
 
 Table View::createProcesses(vector<vector<string>> tableData)
 {
-    cout << "DEBUG: createProcesses called" << endl;
     // create a table
     Table processes;
 
@@ -79,12 +78,6 @@ Table View::createProcesses(vector<vector<string>> tableData)
 
     // add column headers
     processes.add_row({"Process Name", "PID", "MEM(kb)", "CPU(%)", "Status"});
-
-    // format the first row background color to green
-    processes[0].format()
-        .font_color(Color::white)
-        .font_background_color(Color::green)
-        .font_align(FontAlign::center);
 
     // loop through process names
     for (int i = 0; i < tableData.size(); i++)
@@ -119,6 +112,9 @@ void View::render(vector<vector<string>> tableData)
     // make the last row background color red
     viewport[2].format().font_color(Color::white).font_background_color(Color::red).font_align(FontAlign::center);
 
+    // make the second row background color green
+    viewport[1].format().font_color(Color::white).font_background_color(Color::green).font_align(FontAlign::center);
+
 
 // if system is linux, clear the screen
 #ifdef __linux__
@@ -131,6 +127,8 @@ void View::render(vector<vector<string>> tableData)
     system("cls");
 #endif
 
+    // remove the cursor
+    cout << "\033[?25l";
     // print the processes table
-    std::cout << viewport << std::endl;
+    cout << viewport << endl;
 }

@@ -90,3 +90,8 @@ _deps
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,linux,c++,cmake
 
 # Custom rules (everything added below won't be overriden by 'Generate .gitignore File' if you use 'Update' option)
+# ignore build directory
+build/
+
+# ignore  logs directory
+logs/

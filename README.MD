@@ -75,8 +75,8 @@ All these processes logs a message to `<PROJECT_ROOT>/logs/<process_name>.log` i
 
 Among these processes `spock` takes a string as start-up parameter. The message from the `spock` process depends on the start-up argument. If no argument is passed, it has a default text to log.
 
-<p align="center" width="200">
-    <img src="https://images2.imgbox.com/04/a1/Cs7vjLRm_o.png"/>
+<p align="center">
+    <img src="https://media.tenor.com/af2R3VhY7ZcAAAAC/llap-spock.gif" width="350"/>
 </p>
 
 ## Logs

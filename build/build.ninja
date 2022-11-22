@@ -52,28 +52,28 @@ build cmake_object_order_depends_target_main: phony || CMakeFiles/main.dir
 build CMakeFiles/main.dir/src/main.cpp.o: CXX_COMPILER__main_Debug /home/nsssayom/Dev/medCX/watcher/src/main.cpp || cmake_object_order_depends_target_main
   DEP_FILE = CMakeFiles/main.dir/src/main.cpp.o.d
   FLAGS = -g
-  INCLUDES = -I/home/nsssayom/Dev/medCX/watcher/include
+  INCLUDES = -I/home/nsssayom/Dev/medCX/watcher/include -I/home/nsssayom/Dev/medCX/watcher/include/boost_process
   OBJECT_DIR = CMakeFiles/main.dir
   OBJECT_FILE_DIR = CMakeFiles/main.dir/src
 
 build CMakeFiles/main.dir/src/core/view/view.cpp.o: CXX_COMPILER__main_Debug /home/nsssayom/Dev/medCX/watcher/src/core/view/view.cpp || cmake_object_order_depends_target_main
   DEP_FILE = CMakeFiles/main.dir/src/core/view/view.cpp.o.d
   FLAGS = -g
-  INCLUDES = -I/home/nsssayom/Dev/medCX/watcher/include
+  INCLUDES = -I/home/nsssayom/Dev/medCX/watcher/include -I/home/nsssayom/Dev/medCX/watcher/include/boost_process
   OBJECT_DIR = CMakeFiles/main.dir
   OBJECT_FILE_DIR = CMakeFiles/main.dir/src/core/view
 
 build CMakeFiles/main.dir/src/core/config/config.cpp.o: CXX_COMPILER__main_Debug /home/nsssayom/Dev/medCX/watcher/src/core/config/config.cpp || cmake_object_order_depends_target_main
   DEP_FILE = CMakeFiles/main.dir/src/core/config/config.cpp.o.d
   FLAGS = -g
-  INCLUDES = -I/home/nsssayom/Dev/medCX/watcher/include
+  INCLUDES = -I/home/nsssayom/Dev/medCX/watcher/include -I/home/nsssayom/Dev/medCX/watcher/include/boost_process
   OBJECT_DIR = CMakeFiles/main.dir
   OBJECT_FILE_DIR = CMakeFiles/main.dir/src/core/config
 
 build CMakeFiles/main.dir/src/service/unix/ProcessManager.cpp.o: CXX_COMPILER__main_Debug /home/nsssayom/Dev/medCX/watcher/src/service/unix/ProcessManager.cpp || cmake_object_order_depends_target_main
   DEP_FILE = CMakeFiles/main.dir/src/service/unix/ProcessManager.cpp.o.d
   FLAGS = -g
-  INCLUDES = -I/home/nsssayom/Dev/medCX/watcher/include
+  INCLUDES = -I/home/nsssayom/Dev/medCX/watcher/include -I/home/nsssayom/Dev/medCX/watcher/include/boost_process
   OBJECT_DIR = CMakeFiles/main.dir
   OBJECT_FILE_DIR = CMakeFiles/main.dir/src/service/unix
 
@@ -106,7 +106,7 @@ build cmake_object_order_depends_target_data: phony || CMakeFiles/data.dir
 build CMakeFiles/data.dir/src/sample/data.cpp.o: CXX_COMPILER__data_Debug /home/nsssayom/Dev/medCX/watcher/src/sample/data.cpp || cmake_object_order_depends_target_data
   DEP_FILE = CMakeFiles/data.dir/src/sample/data.cpp.o.d
   FLAGS = -g
-  INCLUDES = -I/home/nsssayom/Dev/medCX/watcher/include
+  INCLUDES = -I/home/nsssayom/Dev/medCX/watcher/include -I/home/nsssayom/Dev/medCX/watcher/include/boost_process
   OBJECT_DIR = CMakeFiles/data.dir
   OBJECT_FILE_DIR = CMakeFiles/data.dir/src/sample
 
@@ -139,7 +139,7 @@ build cmake_object_order_depends_target_kirk: phony || CMakeFiles/kirk.dir
 build CMakeFiles/kirk.dir/src/sample/kirk.cpp.o: CXX_COMPILER__kirk_Debug /home/nsssayom/Dev/medCX/watcher/src/sample/kirk.cpp || cmake_object_order_depends_target_kirk
   DEP_FILE = CMakeFiles/kirk.dir/src/sample/kirk.cpp.o.d
   FLAGS = -g
-  INCLUDES = -I/home/nsssayom/Dev/medCX/watcher/include
+  INCLUDES = -I/home/nsssayom/Dev/medCX/watcher/include -I/home/nsssayom/Dev/medCX/watcher/include/boost_process
   OBJECT_DIR = CMakeFiles/kirk.dir
   OBJECT_FILE_DIR = CMakeFiles/kirk.dir/src/sample
 
@@ -172,7 +172,7 @@ build cmake_object_order_depends_target_picard: phony || CMakeFiles/picard.dir
 build CMakeFiles/picard.dir/src/sample/picard.cpp.o: CXX_COMPILER__picard_Debug /home/nsssayom/Dev/medCX/watcher/src/sample/picard.cpp || cmake_object_order_depends_target_picard
   DEP_FILE = CMakeFiles/picard.dir/src/sample/picard.cpp.o.d
   FLAGS = -g
-  INCLUDES = -I/home/nsssayom/Dev/medCX/watcher/include
+  INCLUDES = -I/home/nsssayom/Dev/medCX/watcher/include -I/home/nsssayom/Dev/medCX/watcher/include/boost_process
   OBJECT_DIR = CMakeFiles/picard.dir
   OBJECT_FILE_DIR = CMakeFiles/picard.dir/src/sample
 
@@ -205,7 +205,7 @@ build cmake_object_order_depends_target_spock: phony || CMakeFiles/spock.dir
 build CMakeFiles/spock.dir/src/sample/spock.cpp.o: CXX_COMPILER__spock_Debug /home/nsssayom/Dev/medCX/watcher/src/sample/spock.cpp || cmake_object_order_depends_target_spock
   DEP_FILE = CMakeFiles/spock.dir/src/sample/spock.cpp.o.d
   FLAGS = -g
-  INCLUDES = -I/home/nsssayom/Dev/medCX/watcher/include
+  INCLUDES = -I/home/nsssayom/Dev/medCX/watcher/include -I/home/nsssayom/Dev/medCX/watcher/include/boost_process
   OBJECT_DIR = CMakeFiles/spock.dir
   OBJECT_FILE_DIR = CMakeFiles/spock.dir/src/sample
 
@@ -238,7 +238,7 @@ build cmake_object_order_depends_target_uhura: phony || CMakeFiles/uhura.dir
 build CMakeFiles/uhura.dir/src/sample/uhura.cpp.o: CXX_COMPILER__uhura_Debug /home/nsssayom/Dev/medCX/watcher/src/sample/uhura.cpp || cmake_object_order_depends_target_uhura
   DEP_FILE = CMakeFiles/uhura.dir/src/sample/uhura.cpp.o.d
   FLAGS = -g
-  INCLUDES = -I/home/nsssayom/Dev/medCX/watcher/include
+  INCLUDES = -I/home/nsssayom/Dev/medCX/watcher/include -I/home/nsssayom/Dev/medCX/watcher/include/boost_process
   OBJECT_DIR = CMakeFiles/uhura.dir
   OBJECT_FILE_DIR = CMakeFiles/uhura.dir/src/sample
 

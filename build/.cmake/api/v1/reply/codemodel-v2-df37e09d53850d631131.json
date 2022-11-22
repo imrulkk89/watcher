@@ -1,0 +1,105 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "watcher",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "data::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-data-Debug-0ec2de7aacdf212a594b.json",
+					"name" : "data",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "kirk::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-kirk-Debug-b94fb1d657ef85372f8a.json",
+					"name" : "kirk",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "main::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-main-Debug-29452346cb8cb086609d.json",
+					"name" : "main",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "picard::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-picard-Debug-d24711efd7832f401d19.json",
+					"name" : "picard",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "spock::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-spock-Debug-90b6a2422983d32637a8.json",
+					"name" : "spock",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uhura::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uhura-Debug-cb3e174ae4e3c3d35e7d.json",
+					"name" : "uhura",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/nsssayom/Dev/medCX/watcher/build",
+		"source" : "/home/nsssayom/Dev/medCX/watcher"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}
